@@ -1,0 +1,213 @@
+#%RAML 1.0
+title: Retail API
+baseUri: http://api.retail.com
+version: v1
+/products:
+  get:
+    description: list of all products
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include Examples/GetAllProducts.json
+      404:
+        body:
+          application/json:
+            example:
+              {message: "not found"}
+              
+  /ID:
+    get:
+      queryParameters:
+        Id:
+          type: integer
+          required: true
+      description: list product by ID
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                !include Examples/GetProduct.json
+    put: 
+      queryParameters:
+        Id:
+          type: integer
+          required: true
+      description: update product data by ID
+      responses:
+        200:
+          body:
+           application/json:
+             example:
+              {"message": "successfully updated"}
+        500:
+          body:
+            application/json:
+              example:
+                {message: "server failure"}
+    delete:
+      queryParameters:
+        Id:
+          type: integer
+          required: true
+      description: delete the existing product by Id
+      responses:
+        200:
+         body:
+            application/json:
+              example: 
+               {message: "successfully deleted"} 
+ 
+  post:
+    description: insert a new product
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {"message": "created successfully"}
+      401:
+        body:
+          application/json:
+            example:
+              {message: "authontication problem"}   
+    
+/Bills:
+  get:
+    description: fetches all bill data
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              !include Examples/GetAllBillS.json
+      404:
+        body:
+          application/json:
+            example:
+              {
+                "message": "not found"
+              }        
+  post:
+    description: insert bill ID
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {"message": "created successfully"}
+      500:
+        body:
+          application/json:
+            example:
+              {message: "server failure"}
+
+  /ID:
+    get:
+      queryParameters:
+        Id:
+          type: integer
+          required: true
+      description: list bills by ID
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                !include Examples/Getbill.json
+    put:
+      queryParameters:
+        Id:
+          type: integer
+          required: true
+      description: update bill data
+      responses:
+       200:
+        body:
+          application/json:
+            example:
+              {"message": "successfully updated"}
+    delete:
+      queryParameters:
+        Id:
+          type: integer
+          required: true
+      description: delete bill by ID from the system
+      responses:
+       200:
+        body:
+          application/json:
+            example:
+              {"message": "deleted successfully"}
+
+/Product Catagories:
+  get:
+    description: list of all product catagories
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include Examples/GetAllProductCatagory.json 
+      404:      
+        body:
+          application/json:
+            example:
+              {
+                "message": "not found"
+              }
+  /ID:
+    get:
+      queryParameters:
+        Id:
+          type: integer
+          required: true
+      description: list product catagories ID
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                !include Examples/GetProductCatagory.json
+    put:
+      queryParameters:
+        Id:
+          type: integer
+          required: true
+      description: update product catagory data
+      responses:
+        200:
+          body:
+           application/json:
+             example:
+               {"message": "successfully updated"}
+              
+    delete:
+      queryParameters:
+        Id:
+          type: integer
+          required: true
+      description: delete the existing product categories by ID
+      responses:
+        200:
+         body:
+            application/json:
+              example: 
+                {"message": "Successfully deleted"}
+
+  post:
+    description: insert a new product catagory
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {"message": "created successfully"}
+      400:
+        body:
+          application/json:
+            example:
+              {"message": "bad request"}
+  
+              
+    

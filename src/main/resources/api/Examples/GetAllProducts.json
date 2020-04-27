@@ -1,0 +1,16 @@
+[
+{"Id": 123,
+"Name": "Sugar",
+"Barecode": "23456",
+"Rate": 7.5,
+"Productcatagory": "organic"},
+{"Id": 124,
+"Name": "Orange",
+"Barecode": "23457",
+"Rate": 9.5,
+"Productcatagory": "inorganic"},
+{"Id": 126,
+"Name": "Mango",
+"Barecode": "23458",
+"Rate": 6.5,
+"Productcatagory": "organic"}]
